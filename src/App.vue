@@ -1,6 +1,19 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <div id="nav">
+      <b-navbar fixed="top" toggleable="lg" type="dark" variant="dark">
+        <b-navbar-brand to="/">Dashboard</b-navbar-brand>
+        <b-collapse is-nav id="nav_collapse">
+          <b-navbar-nav>
+            <b-nav-item to="/companies">Companies</b-nav-item>
+            <b-nav-item to="/employees">Employees</b-nav-item>
+            <b-nav-item to="/partner_companies">Partner Companies</b-nav-item>
+            <b-nav-item to="/contractors">Contractors</b-nav-item>
+            <b-nav-item to="/clients">Clients</b-nav-item>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
+    </div>
     <router-view/>
   </div>
 </template>
