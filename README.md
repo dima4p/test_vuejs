@@ -1,6 +1,7 @@
 # client_dashboard_frontend
 
-> A Vue.js project
+This is my first SPA application and my first Vue.js probe. So, it is, I am sure,
+far from the best practices.
 
 ## Build Setup
 
@@ -25,3 +26,8 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## TODO
+
+* Unify CRUD routers
+* Use the API host name in one place
