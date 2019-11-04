@@ -11,42 +11,40 @@
       {{ company.name }}
     </p>
     <div class="container">
-      <!--{{ link_to 'Edit', edit_company_path(@company) }}
+      <router-link :to="`/company/${company.id}/edit`">Edit</router-link>
       |
-      {{ link_to 'Back', companies_path }}-->
       <router-link to="/companies">Back to list</router-link>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   name: 'Company',
   data () {
     return {
-      company: {},
-      id: this.$route.params.id
+      company: {}
+    }
+  },
+
+  methods: {
+    read: function () {
+      this.$root.axios.request({
+        method: 'get',
+        url: `/companies/${this.$route.params.id}.json`
+      })
+        .then(response => {
+          this.company = response.data
+        })
+        .catch(e => {
+          this.error.push(e)
+        })
     }
   },
 
   created () {
     this.company = {}
-    axios.request({
-      method: 'get',
-      url: `http://test.devel:8008/companies/${this.$route.params.id}.json`,
-      auth: {
-        username: 'username',
-        password: 'secret'
-      }
-    })
-      .then(response => {
-        this.company = response.data
-      })
-      .catch(e => {
-        this.error.push(e)
-      })
+    this.read()
   }
 }
 </script>
