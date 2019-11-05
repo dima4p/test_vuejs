@@ -3,7 +3,10 @@
     <h1>Editing Company "{{company.name}}"</h1>
     <div class="form-group">
       <div class="field">
-        <label class="col-sm-3 control-label" for="male">Name</label>
+        <label class="col-sm-3 control-label" for="male">
+          Name
+          <span class="error">{{'name' in errors ? errors.name.join(', ') : ''}}</span>
+        </label>
         <div class="col-sm-4">
           <input v-model="company.name" placeholder="edit me" class='form-control'>
         </div>
@@ -27,7 +30,10 @@ export default {
   name: 'CompanyEdit',
   data () {
     return {
-      company: {}
+      company: {},
+      error: [],
+      errors: {},
+      status: 0
     }
   },
   methods: {
@@ -42,8 +48,13 @@ export default {
         }
       })
         .then(response => {
-          this.company = response.data
-          this.$router.push(`/company/${this.company.id}`)
+          this.status = response.status
+          if (response.status === 200) {
+            this.$router.push(`/company/${this.company.id}`)
+          } else {
+            this.errors = response.data
+            console.log(response.data)
+          }
         })
         .catch(e => {
           this.error.push(e)
@@ -56,6 +67,7 @@ export default {
       })
         .then(response => {
           this.company = response.data
+          this.status = response.status
         })
         .catch(e => {
           this.error.push(e)

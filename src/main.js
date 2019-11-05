@@ -14,6 +14,9 @@ axios.defaults.auth = {
   username: 'username',
   password: 'secret'
 }
+axios.defaults.validateStatus = function (status) {
+  return status < 500
+}
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
