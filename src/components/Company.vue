@@ -11,7 +11,7 @@
       {{ company.name }}
     </p>
     <div class="container">
-      <router-link :to="`/company/${company.id}/edit`">Edit</router-link>
+      <router-link :to="`/company/${company.id}/form`">Edit</router-link>
       |
       <router-link to="/companies">Back to list</router-link>
     </div>
