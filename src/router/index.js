@@ -6,6 +6,9 @@ import CompanyForm from '@/components/CompanyForm'
 import Employees from '@/components/Employees'
 import Employee from '@/components/Employee'
 import EmployeeForm from '@/components/EmployeeForm'
+import PartnerCompanies from '@/components/PartnerCompanies'
+import PartnerCompany from '@/components/PartnerCompany'
+import PartnerCompanyForm from '@/components/PartnerCompanyForm'
 
 Vue.use(Router)
 
@@ -45,6 +48,21 @@ export default new Router({
       path: '/employee/:id/form',
       name: 'EmployeeForm',
       component: EmployeeForm
+    },
+    {
+      path: '/partner_companies',
+      name: 'PartnerCompanies',
+      component: PartnerCompanies
+    },
+    {
+      path: '/partner_company/:id',
+      name: 'PartnerCompany',
+      component: PartnerCompany
+    },
+    {
+      path: '/partner_company/:id/form',
+      name: 'PartnerCompanyForm',
+      component: PartnerCompanyForm
     }
   ]
 })
