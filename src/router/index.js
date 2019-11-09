@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import Companies from '@/components/Companies'
 import Company from '@/components/Company'
 import CompanyForm from '@/components/CompanyForm'
+import Contractors from '@/components/Contractors'
+import Contractor from '@/components/Contractor'
+import ContractorForm from '@/components/ContractorForm'
 import Employees from '@/components/Employees'
 import Employee from '@/components/Employee'
 import EmployeeForm from '@/components/EmployeeForm'
@@ -33,6 +36,21 @@ export default new Router({
       path: '/company/:id/form',
       name: 'CompanyForm',
       component: CompanyForm
+    },
+    {
+      path: '/contractors',
+      name: 'Contractors',
+      component: Contractors
+    },
+    {
+      path: '/contractor/:id',
+      name: 'Contractor',
+      component: Contractor
+    },
+    {
+      path: '/contractor/:id/form',
+      name: 'ContractorForm',
+      component: ContractorForm
     },
     {
       path: '/employees',
