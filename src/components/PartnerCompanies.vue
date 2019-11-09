@@ -63,7 +63,6 @@ export default {
         })
     },
     destroy: function (index) {
-      console.log(this.partner_companies[index].id)
       if (confirm(`Do you really want to delete the partner company "${this.partner_companies[index].name}"`)) {
         this.$root.axios.request({
           method: 'delete',

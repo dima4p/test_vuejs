@@ -61,7 +61,6 @@ export default {
         })
     },
     destroy: function (index) {
-      console.log(this.employees[index].id)
       if (confirm(`Do you really want to delete the employee "${this.employees[index].name}"`)) {
         this.$root.axios.request({
           method: 'delete',

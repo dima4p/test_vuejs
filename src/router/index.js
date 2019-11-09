@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Client from '@/components/Client'
+import ClientForm from '@/components/ClientForm'
+import Clients from '@/components/Clients'
 import Companies from '@/components/Companies'
 import Company from '@/components/Company'
 import CompanyForm from '@/components/CompanyForm'
@@ -21,6 +24,21 @@ export default new Router({
       path: '/',
       name: 'root',
       component: Companies
+    },
+    {
+      path: '/clients',
+      name: 'Clients',
+      component: Clients
+    },
+    {
+      path: '/client/:id',
+      name: 'Client',
+      component: Client
+    },
+    {
+      path: '/client/:id/form',
+      name: 'ClientForm',
+      component: ClientForm
     },
     {
       path: '/companies',

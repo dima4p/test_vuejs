@@ -61,7 +61,6 @@ export default {
         })
     },
     destroy: function (index) {
-      console.log(this.companies[index].id)
       if (confirm(`Do you really want to delete the company "${this.companies[index].name}"`)) {
         this.$root.axios.request({
           method: 'delete',
