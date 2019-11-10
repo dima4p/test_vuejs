@@ -44,6 +44,7 @@ export default {
     return {
       clients: [],
       name: [],
+      params: {per_page: '0'},
       relationship: [],
       error: []
     }
@@ -53,7 +54,8 @@ export default {
     read: function () {
       this.$root.axios.request({
         method: 'get',
-        url: '/clients.json'
+        url: '/clients.json',
+        params: this.params
       })
         .then(response => {
           this.clients = response.data

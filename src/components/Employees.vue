@@ -42,7 +42,7 @@ export default {
     return {
       employees: [],
       name: [],
-      params: {},
+      params: {per_page: '0'},
       relationship: [],
       error: []
     }

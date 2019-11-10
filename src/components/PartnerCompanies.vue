@@ -44,6 +44,7 @@ export default {
     return {
       partner_companies: [],
       name: [],
+      params: {per_page: '0'},
       relationship: [],
       error: []
     }
@@ -53,7 +54,8 @@ export default {
     read: function () {
       this.$root.axios.request({
         method: 'get',
-        url: '/partner_companies.json'
+        url: '/partner_companies.json',
+        params: this.params
       })
         .then(response => {
           this.partner_companies = response.data
