@@ -61,15 +61,23 @@ export default {
       contractors: [],
       name: [],
       relationship: [],
+      params: {},
       error: []
     }
   },
 
   methods: {
     read: function () {
+      if (this.$route.query.company_id) {
+        this.params['company_id'] = this.$route.query.company_id
+      }
+      if (this.$route.query.partner_company_id) {
+        this.params['partner_company_id'] = this.$route.query.partner_company_id
+      }
       this.$root.axios.request({
         method: 'get',
-        url: '/contractors.json'
+        url: '/contractors.json',
+        params: this.params
       })
         .then(response => {
           this.contractors = response.data
