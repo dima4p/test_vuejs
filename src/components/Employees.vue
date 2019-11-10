@@ -42,6 +42,7 @@ export default {
     return {
       employees: [],
       name: [],
+      params: {},
       relationship: [],
       error: []
     }
@@ -49,9 +50,15 @@ export default {
 
   methods: {
     read: function () {
+      console.log(this.$route.query)
+      if (this.$route.query.company_id) {
+        this.params['company_id'] = this.$route.query.company_id
+      }
+      console.log(this.params)
       this.$root.axios.request({
         method: 'get',
-        url: '/employees.json'
+        url: '/employees.json',
+        params: this.params
       })
         .then(response => {
           this.employees = response.data
